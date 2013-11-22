@@ -1,0 +1,6 @@
+Pixel_Manager 
+
+This is just a structure that holds functions for all kinds of weird and strange pixel manipulation techniques I've come up with , copyed and or made up over-time.
+
+I can not be arsed to comment it just figure it out it's not hard I'm using SDL 1.2  Linker flags on linux mint g++ main.cpp -lSDL
+you have to download SDL2 and make make install through terminal something like that :/
