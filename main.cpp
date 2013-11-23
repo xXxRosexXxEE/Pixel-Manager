@@ -45,33 +45,33 @@ int main(int argc, char **)
 	SDL_Event event;
 	Pixel_Manager Pixel_Manager;
 
-	while(Running == true) {
-		if(keystate[SDLK_UP])
-			inc_dec_value+=1.0;
-		if(!keystate[SDLK_UP])
-			inc_dec_value+=0.0;
+while(Running == true) {
+	if(keystate[SDLK_UP])
+		inc_dec_value+=1.0;
+	if(!keystate[SDLK_UP])
+		inc_dec_value+=0.0;
+	
+	if(keystate[SDLK_DOWN])
+		inc_dec_value-=1.0;
+	if(!keystate[SDLK_DOWN])
+		inc_dec_value-=0.0;
 		
-		if(keystate[SDLK_DOWN])
-			inc_dec_value-=1.0;
-		if(!keystate[SDLK_DOWN])
-			inc_dec_value-=0.0;
-			
-			if(keystate[SDLK_END])
-				return 0;
+		if(keystate[SDLK_END])
+			return 0;
 		
-			SDL_FillRect(Screen,NULL,0x000000);
-			
-			Pixel_Manager.TakeAwayResult_Drawn(first_value,second_value,third_value,color_value,Screen,500,300);
-			
-			while(SDL_PollEvent(&event)) {
-				switch(event.type)
-				{
-					case SDL_QUIT:
-					return 0;
-					break;
-				}
-			}	SDL_Flip(Screen);
-	}
+	SDL_FillRect(Screen,NULL,0x000000);
+	
+	Pixel_Manager.TakeAwayResult_Drawn(first_value,second_value,third_value,color_value,Screen,500,300);
+	
+	while(SDL_PollEvent(&event)) {
+		switch(event.type)
+		{
+			case SDL_QUIT:
+			return 0;
+			break;
+		}
+	}	SDL_Flip(Screen);
+  }
 }
 
 
