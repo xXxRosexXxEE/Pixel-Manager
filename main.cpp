@@ -21,13 +21,13 @@ void PutPixel(int x, int y , int color, SDL_Surface *Surface) {
 }
 
 struct Pixel_Manager {
-		void TakeAwayResult_Drawn(int arg_one , int arg_two, int result_value, int color_value, SDL_Surface *Surface);
+		void TakeAwayResult_Drawn(int arg_one , int arg_two, int result_value, int color_value, SDL_Surface *Surface, int square_x_size, int square_y_size);
 };
 
-//the results of a take away equation become the blue drawn pixels 
-void Pixel_Manager::TakeAwayResult_Drawn(int arg_one , int arg_two, int result_value, int color_value, SDL_Surface *Surface) {
-		for(int x = 0; x<= 500; x++){
-				for(int y = 0; y<= 400; y++) {
+//the results of a take away equation becomes the blue drawn pixels 
+void Pixel_Manager::TakeAwayResult_Drawn(int arg_one , int arg_two, int result_value, int color_value, SDL_Surface *Surface, int square_x_size, int square_y_size) {
+		for(int x = 0; x<= square_x_size; x++){
+				for(int y = 0; y<= square_y_size; y++) {
 					result_value = arg_two - arg_one;
 					if(result_value  <= y*x) {
 						color_value=0xff0000;
@@ -61,7 +61,8 @@ int main(int argc, char **)
 		
 			SDL_FillRect(Screen,NULL,0x000000);
 			
-			Pixel_Manager.TakeAwayResult_Drawn(first_value,second_value,third_value,color_value,Screen);
+			Pixel_Manager.TakeAwayResult_Drawn(first_value,second_value,third_value,color_value,Screen,500,300);
+			
 			while(SDL_PollEvent(&event)) {
 				switch(event.type)
 				{
